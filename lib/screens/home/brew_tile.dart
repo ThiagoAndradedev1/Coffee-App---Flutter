@@ -5,20 +5,54 @@ class BrewTile extends StatelessWidget {
   final Brew brew;
   BrewTile({this.brew});
 
+  String coffeeStrength(int strength) {
+    if (strength >= 100 && strength <= 400) {
+      return 'Weak';
+    }
+    if (strength >= 500 && strength <= 700) {
+      return 'Medium';
+    }
+    return 'Strong';
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+    return Container(
+      margin: const EdgeInsets.all(5.0),
       child: Card(
-        margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
-        child: ListTile(
-          leading: CircleAvatar(
-            radius: 25.0,
-            backgroundColor: Colors.brown[brew.strength],
-            backgroundImage: AssetImage('assets/coffee_icon.png'),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CircleAvatar(
+                radius: 45.0,
+                backgroundColor: Colors.brown[brew.strength],
+                backgroundImage: NetworkImage(
+                    'https://media0.giphy.com/media/g0HiibIiGp2oWQjMy5/giphy.gif'),
+              ),
+              Column(
+                children: [
+                  Text(
+                    brew.name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text('Takes ${brew.sugars} sugar(s)'),
+                ],
+              ),
+              Text(
+                coffeeStrength(brew.strength),
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w300,
+                ),
+              )
+            ],
           ),
-          title: Text(brew.name),
-          subtitle: Text('Takes ${brew.sugars} sugar(s)'),
         ),
       ),
     );

@@ -31,7 +31,7 @@ class _RegisterState extends State<Register> {
               backgroundColor: Colors.brown[800],
               elevation: 0.0,
               title: Text(
-                'Sign up to Coffe Break',
+                'Sign up to Coffee Break',
                 style: GoogleFonts.comfortaa(
                   textStyle: TextStyle(
                     letterSpacing: .5,
