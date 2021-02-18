@@ -79,8 +79,15 @@ class _SettingsFormState extends State<SettingsForm> {
                         TextFormField(
                           initialValue: userData.name,
                           decoration: textInputDecoration,
-                          validator: (val) =>
-                              val.isEmpty ? 'Please enter a name' : null,
+                          validator: (val) {
+                            if (val.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            if (val.length > 13) {
+                              return 'You reached the limit of characters';
+                            }
+                            return null;
+                          },
                           onChanged: (val) =>
                               setState(() => _currentName = val),
                         ),
