@@ -64,8 +64,7 @@ class _SettingsFormState extends State<SettingsForm> {
                         Center(
                           child: CircleAvatar(
                             radius: 40.0,
-                            backgroundImage: NetworkImage(
-                                'http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png'),
+                            backgroundImage: AssetImage('assets/user_img.png'),
                           ),
                         ),
                         const SizedBox(height: 20.0),
@@ -134,7 +133,7 @@ class _SettingsFormState extends State<SettingsForm> {
                           color: Colors.black,
                         ),
                         Text(
-                          'chun.li@thenetninja.co.uk',
+                          userData.email,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 18.0,
@@ -154,7 +153,8 @@ class _SettingsFormState extends State<SettingsForm> {
                                     .updateUserData(
                                         _currentSugars ?? userData.sugars,
                                         _currentName ?? userData.name,
-                                        _currentStrength ?? userData.strength);
+                                        _currentStrength ?? userData.strength,
+                                        userData.email);
                                 Navigator.pop(context);
                               }
                             }),

@@ -28,8 +28,7 @@ class BrewTile extends StatelessWidget {
               CircleAvatar(
                 radius: 45.0,
                 backgroundColor: Colors.brown[brew.strength],
-                backgroundImage: NetworkImage(
-                    'https://media0.giphy.com/media/g0HiibIiGp2oWQjMy5/giphy.gif'),
+                backgroundImage: AssetImage('assets/coffee_icon.gif'),
               ),
               Column(
                 children: [

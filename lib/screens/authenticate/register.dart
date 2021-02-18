@@ -61,8 +61,7 @@ class _RegisterState extends State<Register> {
                         height: 300,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                'https://cdn.pixabay.com/photo/2020/07/08/19/01/coffee-5384864_960_720.png'),
+                            image: AssetImage('assets/coffee_welcome.webp'),
                           ),
                         ),
                       ),
